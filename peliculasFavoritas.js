@@ -1,3 +1,5 @@
+console.log('Ejercicio 1:')
+
 let usuario = {
     nombre: 'Mateo',
     edad: 25,
