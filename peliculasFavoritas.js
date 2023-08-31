@@ -19,5 +19,5 @@ let usuario = {
     ]
 }
 
-console.log('la segunda película favorita del usuario es: ' 
-            + usuario.peliculasFavoritas[1])
+console.log('la segunda película favorita del usuario es: "' 
+            + usuario.peliculasFavoritas[1].titulo + '"')
