@@ -15,7 +15,7 @@
         <!-- CSS -->
         <link rel="stylesheet" href="style.css">
         
-        <!-- Bootstrap JS-->
+        Bootstrap JS
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
@@ -60,12 +60,12 @@
                             
                             <!-- Notas -->
                             <label class="form-label" for="notas">Notas: </label>
-                            <input class="form-control form-control-lg" type="text"  name="notas" id="notas" required>
+                            <input class="form-control form-control-lg" type="number"  name="notas" id="notas" required>
                            
-                            <div id="passwordHelpBlock" class="form-text">
-                                Ingrese solo valores numéricos separados por comas.
+                            <div id="helpText" class="form-text ">
+                                Ingrese una nota y presione "Cargar Nota".
                                 <br>
-                                Para indicar un decimal utilice puntos.
+                                Si desea cargar otra nota repita el proceso.
                             </div>
                             <button id="cargarNota"  class="btn btn-success mt-3">Cargar Nota</button>
                             <br>
@@ -87,11 +87,11 @@
                         
                         <div id="alumno" class="text-break">
                             
-                            <p id="nombreAlumno">Nombre: </p>
+                            <p >Nombre: <span id="nombreAlumno"></span></p>
                             <hr>
-                            <p id="notasAlumno">Notas: </p>
+                            <p >Notas: <span id="notasAlumno"></span> </p>
                             <hr>
-                            <p id="promedioAlumnos">Promedio:</p>
+                            <p >Promedio: <span id="promedioAlumno" ></span> </p>
                         </div>
                         
                         

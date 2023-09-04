@@ -19,8 +19,7 @@ let clase = [
         calificaciones: [6,7,9,7]
     }
 ]
-
-const promedio = function(arr){
+ const calcularPromedio = function(arr){
     let sum = 0; 
 
     for(j=0; j<arr.length; j++){
@@ -40,3 +39,5 @@ let promedioPorAlumno = function(clase){
 }
 
 promedioPorAlumno(clase)
+
+export default calcularPromedio;
