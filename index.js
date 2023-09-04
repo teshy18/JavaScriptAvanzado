@@ -1,11 +1,16 @@
-//Inputs del formulario
+//HTML inputs del formulario
 const nombre = document.getElementById('nombre');
 const notas = document.getElementById('notas');
+const alertText = document.getElementById('alertText')
 
-//HTML Cargando alumno--
+//HTML cargando alumno
 const nombreAlum = document.getElementById('nombreAlumno')
 const notasAlum = document.getElementById('notasAlumno')
 const promAlum = document.getElementById('promedioAlumno')
+
+//Html lista de alumnos
+
+
 
 //Botones
 const btnGuardar = document.getElementById('guardar');
@@ -15,7 +20,7 @@ const btnReset = document.getElementById('reset')
 
 //////////Logica
 
-var alumnos = [];
+const alumnos = [];
 
 const alumno = {
     nombre: '',
@@ -45,27 +50,18 @@ btnGuardar.addEventListener('click', (event)=>{
     event.preventDefault();
 
     alumnos.push(alumno)
-    localStorage.setItem('alumnos', JSON.stringify(alumnos))
+
+    if(alumnos.length >= 3 ){
+        btnGuardar.setAttribute("disabled", "")
+    }
+    //localStorage.setItem('alumnos', JSON.stringify(alumnos))
+    
     resetarAlumno()
     resetarFormulario()
     nombre.focus()
     
 });
 
-//Cargar Notas
-btnCargarNotas.addEventListener('click', (event)=>{
-    event.preventDefault()
-    if(notas.value != NaN){
-        alumno.notas.push(notas.value) 
-        
-        let promedio = calcularPromedio(alumno.notas)
-        promAlum.textContent =  promedio
-        alumno.promedio = promedio
-        notas.value = ''
-        notas.focus() 
-    }
-
-})
 
 //Reiniciar
 btnReset.addEventListener('click', (event)=>{
@@ -89,16 +85,41 @@ nombre.addEventListener('input', (event)=>{
 //notas
 
 notas.addEventListener('input', (event)=>{
-    
 
     let nota =''
     nota += event.target.value
-    
-
+        
     //se visualiza en el cuadro del alumno 
-    notasAlum.textContent =  nota ;
+    if(alumno.notas.length == 0 ){
+        notasAlum.textContent = `(${nota})`
+    } else{
+        notasAlum.textContent = `( ${alumno.notas.join(') (')} ) (${nota})`
+    };
+
+    
 }
 )
+
+//Cargar Notas
+btnCargarNotas.addEventListener('click', (event)=>{
+    event.preventDefault()
+    if(notas.value == '' ){
+        alertText.classList.remove('visually-hidden')
+        notas.value = ''
+        notas.focus() 
+    }else{
+        alumno.notas.push(notas.value) 
+        
+        let promedio = calcularPromedio(alumno.notas)
+        promAlum.textContent =  promedio
+        alumno.promedio = promedio
+        notas.value = ''
+        notas.focus() 
+        alertText.classList.add('visually-hidden')
+    }
+    console.log(alertText.classList)
+
+})
 
 const calcularPromedio = function(arr){
     let sum = 0; 
@@ -111,10 +132,4 @@ const calcularPromedio = function(arr){
 }
 
  
-
-//TODO:
-//Validación notas
-
-// -el boton guardar tiene que guardar el objeto alumno en un array quqe tenga un maximo de 3 alumnos
-// -al llegar a 3 alumnos tengo que deshabilitar el boton guardar. 
 
