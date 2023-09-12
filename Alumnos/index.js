@@ -1,3 +1,10 @@
+//TODO: 
+    // - los alumnos deben generarse mediante un constructur. 
+    // - terminar el formato de salida 
+    
+
+
+
 //HTML inputs del formulario
 const nombre = document.getElementById('nombre');
 const notas = document.getElementById('notas');
