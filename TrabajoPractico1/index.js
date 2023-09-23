@@ -2,7 +2,7 @@
 /// Trabajo Practico 1
     console.log('Trabajo Practico 1')
     console.log('')
-    const arr1 = [1, 3 , 5 ,20]
+    const arr1 = [1, 3  , 3 , 3 , 5 , 5 ,20]
     console.log('Array de ejemplo: ' +JSON.stringify(arr1))
 // 1.Suma de elementos en un arreglo:
 // Escribe una función que use reduce() para sumar todos los elementos de un arreglo de
@@ -53,11 +53,11 @@ const valorMaximo = arr1.reduce((a,b)=>{
 
 console.log('El valor máximo es: ' + valorMaximo)
 
-6.Contar ocurrencias:
-Escribe una función que cuente cuántas veces aparece un elemento específico en un
-arreglo utilizando reduce().
+// 6.Contar ocurrencias:
+// Escribe una función que cuente cuántas veces aparece un elemento específico en un
+// arreglo utilizando reduce().
 
-const arr2 = [1 ,1 , 3 ,3 , 5 ,3 ,4 ,3 ]
+
 
 const repetidos = function(arr, valorRepetido){
     const contador = arr.reduce((contador, valorActual) =>
@@ -67,4 +67,21 @@ const repetidos = function(arr, valorRepetido){
     return `El valor "${valorRepetido}" se repite ${contador} veces`
 }
 
-console.log(repetidos(arr2, 3))
+console.log(repetidos(arr1, 3))
+
+// 7. Ordenar palabras por longitud:
+// Crea una función que ordene un arreglo de palabras por su longitud, es decir, la cantidad de
+// caracteres.
+// EJEMPLO :
+// [CASA, OSO, PELOTA] el resultado debería ser [oso, casa, pelota]
+
+const arr2 = ['oso', 'casa', 'pelota']
+
+const ordenarPorLongitud = arr2.sort((a,b) => a.length - b.length)
+
+console.log(ordenarPorLongitud)
+
+// 8. Búsqueda de un elemento en un arreglo:
+// Escribe una función que busque un elemento específico en un arreglo y devuelva true si se
+// encuentra o false si no se encuentra.
+
