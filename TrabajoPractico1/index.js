@@ -2,6 +2,7 @@
 /// Trabajo Practico 1
     console.log('Trabajo Practico 1')
     console.log('')
+
     const arr1 = [1, 3  , 3 , 3 , 5 , 5 ,20]
     console.log('Array de ejemplo: ' +JSON.stringify(arr1))
 // 1.Suma de elementos en un arreglo:
@@ -79,9 +80,44 @@ const arr2 = ['oso', 'casa', 'pelota']
 
 const ordenarPorLongitud = arr2.sort((a,b) => a.length - b.length)
 
-console.log(ordenarPorLongitud)
+console.log(JSON.stringify(ordenarPorLongitud))
 
 // 8. Búsqueda de un elemento en un arreglo:
 // Escribe una función que busque un elemento específico en un arreglo y devuelva true si se
 // encuentra o false si no se encuentra.
 
+
+const existe = function( arr, valor){
+    return arr.includes(valor)
+}
+
+console.log(existe(arr1, 3))  // true
+console.log(existe(arr1, 7))  // false 
+
+// 9. Búsqueda de la primera coincidencia:
+// Implementa una función que busque la primera instancia de un elemento en un arreglo y
+// devuelva su índice. Si el elemento no está en el arreglo, devuelve -1.
+
+const buscar = function( arr, valor){
+    return arr.findIndex((x) => x == valor)
+}
+
+console.log(buscar(arr1, 5))  // indice: 4
+console.log(buscar(arr1, 7))  // -1 
+
+
+// 10. Búsqueda de la última coincidencia:
+// Crea una función que busque la última instancia de un elemento en un arreglo y devuelva
+// su índice. Si el elemento no está en el arreglo, devuelve -1.
+
+const buscarUltimo = function( arr, valor){
+   let indice = arr.findLast((x) => x == valor)
+   if(indice == undefined){
+    return -1
+   }else{
+    return indice
+   }
+}
+
+console.log(buscarUltimo(arr1, 3))  // indice: 3
+console.log(buscarUltimo(arr1, 7))  // undefinedo ==> -1 
